@@ -11,16 +11,17 @@ datasource db {
   relationMode = "prisma"
 }
 
+model Region {
+  id      String    @id
+  name    String
+  holiday Holiday[]
+}
+
 model Holiday {
   id       String   @id
   name     String
   date     DateTime
   observed DateTime
-  regions   Region[]
-}
-
-model Region {
-  id      String    @id
-  name    String
-  holidays Holiday[]
+  region   Region @relation(fields: [regionId], references: [id])
+  regionId String
 }
