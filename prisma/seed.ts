@@ -1,4 +1,4 @@
-import { prisma } from "../src/server/db";
+import { prisma } from "../src/service/db";
 import regions from "./regions.json";
 import holidays from "./holidays.json";
 
@@ -20,7 +20,7 @@ async function main() {
           id: holiday.id,
           name: holiday.name,
           date: new Date(`${holiday.date} ${year}`),
-          observed: new Date(`${holiday.observed} ${year}`),
+          observedDate: new Date(`${holiday.observed} ${year}`),
           region: {
             connect: { id: holiday.region },
           },

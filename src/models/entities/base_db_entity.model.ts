@@ -7,7 +7,7 @@ export default abstract class BaseDbEntity {
 
   public id: string;
 
-  public createDto<TDto extends BaseDbEntityDto>(dto: TDto): void {
+  protected createDto<TDto extends BaseDbEntityDto>(dto: TDto): void {
     dto.id = this.id;
   }
 }

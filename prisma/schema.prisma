@@ -21,7 +21,7 @@ model Holiday {
   id       String   @id
   name     String
   date     DateTime
-  observed DateTime
+  observedDate DateTime
   region   Region @relation(fields: [regionId], references: [id])
   regionId String
 }

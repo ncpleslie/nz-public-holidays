@@ -2,9 +2,12 @@ import { NextApiResponse } from "next";
 import { AnyZodObject, ZodError } from "zod";
 import { NextApiRequestWithParams } from "../types/next.types";
 
-const withValidateRequest = <TParams extends { params: unknown }>(
+const withValidatedRequest = <TParams extends { params: unknown }>(
   schema: AnyZodObject,
-  next: (req: NextApiRequestWithParams<TParams>, res: NextApiResponse) => void
+  next: (
+    req: NextApiRequestWithParams<TParams>,
+    res: NextApiResponse
+  ) => Promise<void>
 ) => {
   return async (
     req: NextApiRequestWithParams<TParams>,
@@ -33,4 +36,4 @@ const withValidateRequest = <TParams extends { params: unknown }>(
   };
 };
 
-export default withValidateRequest;
+export default withValidatedRequest;
