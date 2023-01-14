@@ -1,21 +1,36 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { AnyZodObject } from "zod";
+import { NextApiResponse } from "next";
+import { AnyZodObject, ZodError } from "zod";
+import { NextApiRequestWithParams } from "../types/next.types";
 
-const validateRequest = async (
+const withValidateRequest = <TParams extends { params: unknown }>(
   schema: AnyZodObject,
-  req: NextApiRequest,
-  res: NextApiResponse
+  next: (req: NextApiRequestWithParams<TParams>, res: NextApiResponse) => void
 ) => {
-  try {
-    throw new Error("test");
+  return async (
+    req: NextApiRequestWithParams<TParams>,
+    res: NextApiResponse
+  ) => {
+    try {
+      const parsedSchema = await schema.parseAsync({
+        body: req.body,
+        query: req.query,
+        params: req.params,
+      });
 
-    return await schema.parseAsync({
-      body: req.body,
-      query: req.query,
-    });
-  } catch (error) {
-    return res.status(400).json(error);
-  }
+      req = {
+        ...req,
+        body: parsedSchema.body,
+        query: parsedSchema.body,
+        params: parsedSchema.params,
+      } as NextApiRequestWithParams<TParams>;
+
+      next(req, res);
+    } catch (error) {
+      const { fieldErrors } = (error as ZodError<unknown>).flatten();
+
+      return res.status(400).json({ error: fieldErrors });
+    }
+  };
 };
 
-export default validateRequest;
+export default withValidateRequest;
