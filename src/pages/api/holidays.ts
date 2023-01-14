@@ -2,6 +2,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 import Cors from "cors";
 import { Prisma } from "@prisma/client";
 import { getHolidays } from "../../server/holiday.service";
+import { z } from "zod";
+import validateRequest from "../../utils/validate_request_schema";
 
 const holidayRegion: Prisma.HolidaySelect = {
   region: true,
@@ -27,13 +29,22 @@ function runMiddleware(
   });
 }
 
+const holidaySchema = z.object({
+  query: z.object({
+    yearFrom: z.string().default(`${new Date().getFullYear()}`),
+    yearTo: z
+      .string()
+      .default(`${new Date().setFullYear(new Date().getFullYear() + 5)}`),
+  }),
+});
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   try {
     await runMiddleware(req, res, cors);
-    console.log(req.query);
+    const query = await validateRequest(holidaySchema, req, res);
     const holidays = await getHolidays();
 
     res.status(200).json(holidays);
