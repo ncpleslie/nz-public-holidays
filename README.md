@@ -1,57 +1,34 @@
-# Hono minimal project
+# NZ Public Holidays API
 
-This is a minimal project with [Hono](https://github.com/honojs/hono/) for Cloudflare Workers.
+After investigating if the New Zealand Government had a public API for providing public holidays, and failing to find anything, I set out to create my own.
 
 ## Features
 
-- Minimal
-- TypeScript
-- Wrangler to develop and deploy.
-- [Jest](https://jestjs.io/ja/) for testing.
+- [Cloudflare Workers](https://workers.cloudflare.com/)
+- [PlanetScale](https://planetscale.com/)
+- [Prisma](https://www.prisma.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Zod](https://zod.dev/)
+- [Hono](https://honojs.dev/)
 
-## Usage
+## Quick start
 
-Initialize
+After creating a database with PlanetScale and a data proxy with Prisma, add the connection string to `.dev.vars` and `.env` with the key `DATABASE_PROXY_URL`
 
-```
-npx create-cloudflare my-app https://github.com/honojs/hono-minimal
-```
-
-Install
+`.env` is required for seeding the database.
 
 ```
-yarn install
+pnpm db-generate
+pnpm db-push
+pnpm db-seed
+pnpm dev
 ```
 
-Develop
+## Deploy
 
 ```
-yarn dev
+pnpm deploy
 ```
-
-Test
-
-```
-yarn test
-```
-
-Deploy
-
-```
-yarn deploy
-```
-
-## Examples
-
-See: <https://github.com/honojs/examples>
-
-## For more information
-
-See: <https://honojs.dev>
-
-## Author
-
-Yusuke Wada <https://github.com/yusukebe>
 
 ## License
 

@@ -1,9 +1,9 @@
 import { Next } from "hono";
 import { AnyZodObject, ZodError } from "zod";
-import { ContextWithParams } from "../types/api.types";
+import { ContextWithParamsAndServices } from "../types/api.types";
 
 const withValidatedRequest = <TParams>(schema: AnyZodObject) => {
-  return async (c: ContextWithParams<TParams>, next: Next) => {
+  return async (c: ContextWithParamsAndServices<TParams>, next: Next) => {
     try {
       const parsedSchema = await schema.parseAsync({
         paramData: c.req.paramData,

@@ -1,8 +1,8 @@
 import HolidayService from "../service/holiday.service";
 import { HolidayDomain } from "../domain/holiday.domain";
 import IHolidayDomain from "../domain/interfaces/holiday_domain.interface";
-import { validateEnv } from "../env/server.js";
 import { ContextWithParamsAndServices } from "../types/api.types";
+import { validateEnv } from "../env/server";
 
 const domainServices = {
   holidayDomain: undefined,

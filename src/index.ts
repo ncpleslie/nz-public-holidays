@@ -2,9 +2,10 @@ import { Hono, Next } from "hono";
 import { holidaySchema, holidayParams } from "./models/holiday_params.schema";
 import { ContextWithParamsAndServices } from "./types/api.types";
 import { initServices } from "./utils/service_provider.util";
-import withValidatedRequest from "./utils/with_validated_request_schema";
+import withValidatedRequest from "./middleware/with_validated_request_schema.middleware";
+import { Bindings } from "hono/dist/types/types";
 
-const app = new Hono();
+const app = new Hono<{ Bindings: Bindings }>();
 
 app.use("*", async (c: ContextWithParamsAndServices, next: Next) => {
   initServices(c);
