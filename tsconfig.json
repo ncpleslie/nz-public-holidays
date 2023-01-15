@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
-    "lib": [
-      "ES2020"
-    ],
-    "types": [
-      "jest",
-      "@cloudflare/workers-types"
-    ]
+    "resolveJsonModule": true,
+    "lib": ["ES2020"],
+    "types": ["jest", "@cloudflare/workers-types"]
   }
 }
