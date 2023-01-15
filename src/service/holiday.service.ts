@@ -11,7 +11,7 @@ export default class HolidayService implements IHolidayService {
     return holidays.reduce(
       (prevHolidays: Record<string, HolidayDto[]>, currentHoliday) => {
         const currentHolidayDto = currentHoliday.toDto();
-        const yearKey = currentHolidayDto.date.getFullYear();
+        const yearKey = currentHolidayDto.date.substring(0, 4);
         if (prevHolidays[yearKey]) {
           prevHolidays[yearKey]?.push(currentHolidayDto);
 

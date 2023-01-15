@@ -9,7 +9,22 @@ export class HolidayDomain extends BaseDomain implements IHolidayDomain {
 
   public async getHolidaysAsync(year?: Date): Promise<Holiday[]> {
     const holidays = await this.db.holiday.findMany({
-      where: { date: { gte: year } },
+      where: {
+        date: {
+          gte: year
+            ? new Date(
+                Date.UTC(
+                  year.getFullYear(),
+                  year.getMonth(),
+                  year.getDay(),
+                  year.getHours(),
+                  year.getMinutes(),
+                  year.getSeconds()
+                )
+              )
+            : undefined,
+        },
+      },
       include: { region: true },
     });
 

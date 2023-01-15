@@ -1,16 +1,16 @@
 import { HolidayModel } from "../../types/db.types";
+import { formatDateToString } from "../../utils/helpers.util";
 import HolidayDto from "../dtos/holiday_dto.model";
 import BaseDbEntity from "./base_db_entity.model";
 import Region from "./region.model";
 
 export default class Holiday extends BaseDbEntity {
-  constructor(holiday: HolidayModel);
-  constructor(holiday: HolidayDto) {
+  constructor(holiday: HolidayModel) {
     super(holiday);
 
-    this.date = holiday.date;
+    this.date = new Date(holiday.date);
     this.name = holiday.name;
-    this.observedDate = holiday.observedDate;
+    this.observedDate = new Date(holiday.observedDate);
     this.region = new Region(holiday.region);
   }
 
@@ -21,9 +21,9 @@ export default class Holiday extends BaseDbEntity {
 
   public toDto(): HolidayDto {
     const dto = new HolidayDto();
-    dto.date = this.date;
+    dto.date = formatDateToString(this.date);
     dto.name = this.name;
-    dto.observedDate = this.observedDate;
+    dto.observedDate = formatDateToString(this.observedDate);
     dto.region = this.region.toDto();
 
     this.createDto(dto);
