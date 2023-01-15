@@ -36,7 +36,7 @@ app.get(
 );
 
 export default router.handler({
-  onError(err, req, res) {
+  onError(err, _, res) {
     console.error((err as Error).message);
     res.status(500).end("Something went wrong");
   },
