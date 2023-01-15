@@ -1,17 +1,23 @@
 import HolidayService from "../service/holiday.service";
 import { HolidayDomain } from "../domain/holiday.domain";
 import IHolidayDomain from "../domain/interfaces/holiday_domain.interface";
+import { validateEnv } from "../env/server.js";
+import { ContextWithParamsAndServices } from "../types/api.types";
 
 const domainServices = {
-  holidayDomain: new HolidayDomain() as IHolidayDomain,
+  holidayDomain: undefined,
 };
 
-const applicationServices = {
-  [HolidayService.name]: new HolidayService(domainServices.holidayDomain),
-};
+export const initServices = (c: ContextWithParamsAndServices) => {
+  const validEnv = validateEnv(c.env);
+  c.env = { ...validEnv };
 
-const serviceProvider = <IService>(serviceName: string): IService => {
-  return applicationServices[serviceName] as IService;
-};
+  domainServices.holidayDomain = new HolidayDomain(
+    validEnv.DATABASE_PROXY_URL,
+    validEnv.NODE_ENV
+  ) as IHolidayDomain;
 
-export default serviceProvider;
+  c.services = {
+    holidayService: new HolidayService(domainServices.holidayDomain),
+  };
+};

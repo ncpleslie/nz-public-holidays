@@ -1,8 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../src/service/db";
 import regions from "./regions.json";
 import holidays from "./holidays.json";
-
-const prisma = new PrismaClient();
 
 async function main() {
   console.log("Deleting tables");

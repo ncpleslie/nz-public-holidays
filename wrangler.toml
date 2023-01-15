@@ -1,0 +1,10 @@
+name="nz-public-holidays"
+main="src/index.ts"
+
+compatibility_date = "2022-11-22"
+
+[vars]
+NODE_ENV="production"
+
+# Required Secrets
+# - DATABASE_PROXY_URL

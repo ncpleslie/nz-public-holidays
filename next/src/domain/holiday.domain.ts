@@ -3,12 +3,15 @@ import BaseDomain from "./base.domain";
 import IHolidayDomain from "./interfaces/holiday_domain.interface";
 
 export class HolidayDomain extends BaseDomain implements IHolidayDomain {
-  constructor(dbUrl: string, environment: string) {
-    super(dbUrl, environment);
+  private readonly holidays;
+
+  constructor() {
+    super();
+    this.holidays = this.db.holiday;
   }
 
   public async getHolidaysAsync(year?: Date): Promise<Holiday[]> {
-    const holidays = await this.db.holiday.findMany({
+    const holidays = await this.holidays.findMany({
       where: { date: { gte: year } },
       include: { region: true },
     });

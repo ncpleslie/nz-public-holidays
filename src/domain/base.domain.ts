@@ -1,11 +1,11 @@
-import { PrismaClient } from "@prisma/client";
-import { env } from "../env/server.mjs";
+import { PrismaClient } from "@prisma/client/edge";
 
 export default abstract class BaseDomain {
-  constructor() {
+  constructor(dbUrl: string, environment: string) {
     this.db = new PrismaClient({
+      datasources: { db: { url: dbUrl } },
       log:
-        env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
+        environment === "development" ? ["query", "error", "warn"] : ["error"],
     });
   }
 
