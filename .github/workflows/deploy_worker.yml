@@ -18,14 +18,20 @@ jobs:
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 6.0.2
+          version: 7
           run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - name: Cache dependencies
         id: cache
         uses: actions/cache@v3
         with:
-          path: node_modules
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: deps-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Install dependencies

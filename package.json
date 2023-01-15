@@ -9,7 +9,7 @@
     "dev": "wrangler dev src/index.ts",
     "deploy": "wrangler publish src/index.ts",
     "db-seed": "SET NODE_ENV=production & prisma db seed",
-    "db-generate": "prisma generate",
+    "db-generate": "prisma generate --data-proxy",
     "db-push": "prisma db push",
     "db-studio": "prisma studio"
   },
