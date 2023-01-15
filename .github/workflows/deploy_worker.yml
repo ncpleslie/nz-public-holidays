@@ -11,32 +11,20 @@ jobs:
     name: Deploy
     steps:
       - uses: actions/checkout@v2
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
 
       - uses: pnpm/action-setup@v2
         with:
           version: 7
           run_install: false
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Cache dependencies
-        id: cache
-        uses: actions/cache@v3
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: deps-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          node-version: 18
+          cache: "pnpm"
 
       - name: Install dependencies
-        if: ${{ steps.cache.outputs.cache-hit != 'true' }}
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Generate DB client
         run: pnpm db-generate
