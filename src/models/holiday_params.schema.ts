@@ -1,9 +1,10 @@
 import { z } from "zod";
 
 // TODO: Move these values to a configuration file
-const startCurrentYear = new Date(new Date("2023-01-01").getFullYear(), 0, 1);
+const currentYear = "2023-01-01";
+const startCurrentYear = new Date(new Date(currentYear).getFullYear(), 0, 1);
 const lastSupportedYear = new Date(
-  new Date("2023-01-01").getFullYear() + 5,
+  new Date(currentYear).getFullYear() + 1,
   0,
   1
 );

@@ -18,10 +18,12 @@ model Region {
 }
 
 model Holiday {
-  id       String   @id
+  id       String
   name     String
   date     DateTime
   observedDate DateTime
   region   Region @relation(fields: [regionId], references: [id])
   regionId String
+
+  @@id([id, date])
 }

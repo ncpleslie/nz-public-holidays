@@ -80,7 +80,7 @@
     {
       "id": "auckland-anniversary",
       "name": "Auckland Anniversary",
-      "date": "30 January",
+      "date": "29 January",
       "observed": "30 January",
       "region": "auckland"
     },
@@ -94,85 +94,262 @@
     {
       "id": "south-canterbury-anniversary",
       "name": "South Canterbury Anniversary",
-      "date": "25 September",
+      "date": "16 December",
       "observed": "25 September",
       "region": "south-canterbury"
     },
     {
       "id": "canterbury-anniversary",
       "name": "Canterbury Anniversary",
-      "date": "17 November",
+      "date": "16 December",
       "observed": "17 November",
       "region": "canterbury"
     },
     {
       "id": "chatham-islands-anniversary",
       "name": "Chatham Islands Anniversary",
-      "date": "27 November",
+      "date": "30 November",
       "observed": "27 November",
       "region": "chatham-islands"
     },
     {
       "id": "hawkes-bay-anniversary",
       "name": "Hawke's Bay Anniversary",
-      "date": "20 October",
+      "date": "1 November",
       "observed": "20 October",
       "region": "hawkes-bay"
     },
     {
       "id": "marlborough-anniversary",
       "name": "Marlborough Anniversary",
-      "date": "30 October",
+      "date": "1 November",
       "observed": "30 October",
       "region": "marlborough"
     },
     {
       "id": "nelson-anniversary",
       "name": "Nelson Anniversary",
-      "date": "30 January",
+      "date": "1 February",
       "observed": "30 January",
       "region": "nelson"
     },
     {
       "id": "northland-anniversary",
       "name": "Northland Anniversary",
-      "date": "30 January",
+      "date": "29 January",
       "observed": "30 January",
       "region": "northland"
     },
     {
       "id": "otago-anniversary",
       "name": "Otago Anniversary",
-      "date": "20 March",
+      "date": "23 March",
       "observed": "20 March",
       "region": "otago"
     },
     {
       "id": "southland-anniversary",
       "name": "Southland Anniversary",
-      "date": "11 April",
+      "date": "17 January",
       "observed": "11 April",
       "region": "southland"
     },
     {
       "id": "taranaki-anniversary",
       "name": "Taranaki Anniversary",
-      "date": "13 March",
+      "date": "31 March",
       "observed": "13 March",
       "region": "taranaki"
     },
     {
       "id": "wellington-anniversary",
       "name": "Wellington Anniversary",
-      "date": "23 January",
+      "date": "22 January",
       "observed": "23 January",
       "region": "wellington"
     },
     {
       "id": "westland-anniversary",
       "name": "Westland Anniversary",
-      "date": "4 December",
+      "date": "1 December",
       "observed": "4 December",
+      "region": "westland"
+    }
+  ],
+  "2024": [
+    {
+      "id": "new-years-day",
+      "name": "New Year's Day",
+      "date": "1 January",
+      "observed": "1 January",
+      "region": "all"
+    },
+    {
+      "id": "day-after-new-years-day",
+      "name": "Day after New Year's Day",
+      "date": "2 January",
+      "observed": "2 January",
+      "region": "all"
+    },
+    {
+      "id": "waitangi-day",
+      "name": "Waitangi Day",
+      "date": "6 February",
+      "observed": "6 February",
+      "region": "all"
+    },
+    {
+      "id": "good-friday",
+      "name": "Good Friday",
+      "date": "29 March",
+      "observed": "29 March",
+      "region": "all"
+    },
+    {
+      "id": "easter-monday",
+      "name": "Easter Monday",
+      "date": "1 April",
+      "observed": "1 April",
+      "region": "all"
+    },
+    {
+      "id": "anzac-day",
+      "name": "ANZAC Day",
+      "date": "25 April",
+      "observed": "25 April",
+      "region": "all"
+    },
+    {
+      "id": "kings-birthday",
+      "name": "King's Birthday",
+      "date": "3 June",
+      "observed": "3 June",
+      "region": "all"
+    },
+    {
+      "id": "matariki",
+      "name": "Matariki",
+      "date": "28 June",
+      "observed": "28 June",
+      "region": "all"
+    },
+    {
+      "id": "labour-day",
+      "name": "Labour Day",
+      "date": "28 October",
+      "observed": "28 October",
+      "region": "all"
+    },
+    {
+      "id": "christmas-day",
+      "name": "Christmas Day",
+      "date": "25 December",
+      "observed": "25 December",
+      "region": "all"
+    },
+    {
+      "id": "boxing-day",
+      "name": "Boxing Day",
+      "date": "26 December",
+      "observed": "26 December",
+      "region": "all"
+    },
+    {
+      "id": "auckland-anniversary",
+      "name": "Auckland Anniversary",
+      "date": "29 January",
+      "observed": "29 January",
+      "region": "auckland"
+    },
+    {
+      "id": "buller-anniversary",
+      "name": "Buller Anniversary",
+      "date": "5 February",
+      "observed": "5 February",
+      "region": "buller"
+    },
+    {
+      "id": "south-canterbury-anniversary",
+      "name": "South Canterbury Anniversary",
+      "date": "16 December",
+      "observed": "23 September",
+      "region": "south-canterbury"
+    },
+    {
+      "id": "canterbury-anniversary",
+      "name": "Canterbury Anniversary",
+      "date": "16 December",
+      "observed": "15 November",
+      "region": "canterbury"
+    },
+    {
+      "id": "chatham-islands-anniversary",
+      "name": "Chatham Islands Anniversary",
+      "date": "30 November",
+      "observed": "2 December",
+      "region": "chatham-islands"
+    },
+    {
+      "id": "hawkes-bay-anniversary",
+      "name": "Hawke's Bay Anniversary",
+      "date": "1 November",
+      "observed": "25 October",
+      "region": "hawkes-bay"
+    },
+    {
+      "id": "marlborough-anniversary",
+      "name": "Marlborough Anniversary",
+      "date": "1 November",
+      "observed": "4 November",
+      "region": "marlborough"
+    },
+    {
+      "id": "nelson-anniversary",
+      "name": "Nelson Anniversary",
+      "date": "1 February",
+      "observed": "29 January",
+      "region": "nelson"
+    },
+    {
+      "id": "northland-anniversary",
+      "name": "Northland Anniversary",
+      "date": "29 January",
+      "observed": "29 January",
+      "region": "northland"
+    },
+    {
+      "id": "otago-anniversary",
+      "name": "Otago Anniversary",
+      "date": "23 March",
+      "observed": "25 March",
+      "region": "otago"
+    },
+    {
+      "id": "southland-anniversary",
+      "name": "Southland Anniversary",
+      "date": "17 April",
+      "observed": "2 April",
+      "region": "southland"
+    },
+    {
+      "id": "taranaki-anniversary",
+      "name": "Taranaki Anniversary",
+      "date": "31 March",
+      "observed": "11 March",
+      "region": "taranaki"
+    },
+    {
+      "id": "wellington-anniversary",
+      "name": "Wellington Anniversary",
+      "date": "22 January",
+      "observed": "22 January",
+      "region": "wellington"
+    },
+    {
+      "id": "westland-anniversary",
+      "name": "Westland Anniversary",
+      "date": "1 December",
+      "observed": "2 December",
       "region": "westland"
     }
   ]

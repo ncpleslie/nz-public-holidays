@@ -17,6 +17,7 @@ async function main() {
   console.log("Adding holiday");
   for await (const [year, scopedHolidays] of Object.entries(holidays)) {
     for await (const holiday of scopedHolidays) {
+      console.log(`Adding ${holiday.id} for ${year}`);
       await prisma.holiday.create({
         data: {
           id: holiday.id,
