@@ -37,16 +37,16 @@ pnpm deploy
 ## Response
 
 The expected payload is as follows.
-All types specified are standard JavaScript type.
+All types specified are standard JavaScript types.
 
 ```JSON
 {
     "year": // The year the holiday's occur in
         [
             {
-                "date": Date // The official date of the holiday
+                "date": string // The official date of the holiday
                 "name": string // The official name of the holiday
-                "observedDate": Date // The actual date the holiday occurs
+                "observedDate": string // The actual date the holiday occurs
                 "region": {
                     "name": string // The name of the region the holiday occurs.
                     "id": string // The id of the region.
