@@ -7,4 +7,4 @@ export type ContextWithParamsAndServices<
       paramData: unknown;
     };
   }
-> = Context & TParams & { services: { holidayService: IHolidayService } };
+> = Context & TParams & { services: { holiday: IHolidayService } };

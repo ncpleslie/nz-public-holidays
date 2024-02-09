@@ -7,4 +7,5 @@ compatibility_date = "2022-11-22"
 NODE_ENV="development"
 
 # Required Secrets
-# - DATABASE_PROXY_URL
+# - DATABASE_URL
+# - DIRECT_URL

@@ -5,19 +5,19 @@ import { ContextWithParamsAndServices } from "../types/api.types";
 import { validateEnv } from "../env/server";
 
 const domainServices = {
-  holidayDomain: undefined,
+  holiday: undefined,
 };
 
 export const initServices = (c: ContextWithParamsAndServices) => {
   const validEnv = validateEnv(c.env);
   c.env = { ...validEnv };
 
-  domainServices.holidayDomain = new HolidayDomain(
-    validEnv.DATABASE_PROXY_URL,
+  domainServices.holiday = new HolidayDomain(
+    validEnv.DATABASE_URL,
     validEnv.NODE_ENV
   ) as IHolidayDomain;
 
   c.services = {
-    holidayService: new HolidayService(domainServices.holidayDomain),
+    holiday: new HolidayService(domainServices.holiday),
   };
 };

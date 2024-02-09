@@ -14,7 +14,7 @@ app.use("*", async (c: ContextWithParamsAndServices, next: Next) => {
 });
 
 app.get("/", async (c: ContextWithParamsAndServices) => {
-  const holidays = await c.services.holidayService.getAllHolidaysAsync();
+  const holidays = await c.services.holiday.getAllAsync();
 
   return c.json(holidays);
 });
@@ -23,7 +23,7 @@ app.get(
   "/:year",
   withValidatedRequest(holidaySchema),
   async (c: ContextWithParamsAndServices<holidayParams>) => {
-    const holidays = await c.services.holidayService.getHolidaysByYearAsync(
+    const holidays = await c.services.holiday.getByYearAsync(
       c.req.paramData.year
     );
 

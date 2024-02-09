@@ -9,3 +9,5 @@ yarn.lock
 *.tgz
 .env
 .dev.vars
+prisma/migrations/20240209175929_02092024_1/migration.sql
+prisma/migrations/migration_lock.toml

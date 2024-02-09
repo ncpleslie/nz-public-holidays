@@ -6,7 +6,7 @@ import Holiday from "../models/entities/holiday.model";
 export default class HolidayService implements IHolidayService {
   constructor(protected holidayDomain: IHolidayDomain) {}
 
-  public async getAllHolidaysAsync(): Promise<Record<string, HolidayDto[]>> {
+  public async getAllAsync(): Promise<Record<string, HolidayDto[]>> {
     const holidays = await this.holidayDomain.getHolidaysAsync();
 
     return this.sortHolidays(holidays).reduce(
@@ -27,7 +27,7 @@ export default class HolidayService implements IHolidayService {
     );
   }
 
-  public async getHolidaysByYearAsync(year: Date): Promise<HolidayDto[]> {
+  public async getByYearAsync(year: Date): Promise<HolidayDto[]> {
     const holidays = await this.holidayDomain.getHolidaysAsync(year);
 
     return this.sortHolidays(holidays)
